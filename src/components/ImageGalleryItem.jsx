@@ -1,7 +1,12 @@
-export const GalleryItem = ({ webformatURL }) => {
-  return (
-    <li class="gallery-item">
-      <img src={webformatURL} alt="" width="200" />
-    </li>
-  );
+import propTypes from 'prop-types';
+
+export const GalleryItem = ({ image, onClick }) => (
+  <li id={image.id} onClick={onClick} class="gallery-item">
+    <img src={image.webformatURL} alt={image.tags} name={image.largeImageURL} />
+  </li>
+);
+
+GalleryItem.propTypes = {
+  image: propTypes.object.isRequired,
+  onClick: propTypes.func.isRequired,
 };
