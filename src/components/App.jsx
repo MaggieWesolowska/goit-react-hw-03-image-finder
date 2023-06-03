@@ -73,6 +73,7 @@ export class App extends Component {
 
   render() {
     const { isLoading, images, isModalOpen, modalImg, modalAlt } = this.state;
+
     return (
       <div
         style={{
