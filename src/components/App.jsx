@@ -72,6 +72,7 @@ export class App extends Component {
   }
 
   render() {
+    const { isLoading, images, isModalOpen, modalImg, modalAlt } = this.state;
     return (
       <div
         style={{
@@ -81,24 +82,24 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        {this.state.isLoading ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <div>
             <Searchbar onSubmit={this.handleSubmit} />
             <ImageGallery
-              images={this.state.images}
+              images={images}
               onImageClick={this.handleImageClick}
             />
-            {this.state.images.length > 0 ? (
+            {images.length > 0 ? (
               <Button onClick={this.handleMoreButton} />
             ) : null}
           </div>
         )}
-        {this.state.isModalOpen ? (
+        {isModalOpen ? (
           <Modal
-            src={this.state.modalImg}
-            alt={this.state.modalAlt}
+            src={modalImg}
+            alt={modalAlt}
             handleClose={this.handleModalClose}
           />
         ) : null}
