@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 
 export const GalleryItem = ({ image, onClick }) => (
-  <li id={image.id} onClick={onClick} class="gallery-item">
+  <li id={image.id} onClick={onClick}>
     <img src={image.webformatURL} alt={image.tags} name={image.largeImageURL} />
   </li>
 );

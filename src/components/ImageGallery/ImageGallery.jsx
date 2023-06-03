@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import { GalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 
 export const ImageGallery = ({ images, onImageClick }) => (
-  <ul class="gallery">
+  <ul>
     {images.map((image, index) => (
       <GalleryItem
         key={index}
