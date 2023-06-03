@@ -18,7 +18,7 @@ export class App extends Component {
     modalAlt: '',
   };
 
-  onSubmit = async e => {
+  handleSubmit = async e => {
     e.preventDefault();
     this.setState({ isLoading: true });
     const searchInput = e.target.elements.searchInput;
@@ -61,14 +61,14 @@ export class App extends Component {
     });
   };
 
-  handleKeyDown = e => {
+  handleEscapeKey = e => {
     if (e.code === 'Escape') {
       this.handleModalClose();
     }
   };
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener('keydown', this.handleEscapeKey);
   }
 
   render() {
@@ -85,7 +85,7 @@ export class App extends Component {
           <Loader />
         ) : (
           <div>
-            <Searchbar onSubmit={this.onSubmit} />
+            <Searchbar onSubmit={this.handleSubmit} />
             <ImageGallery
               images={this.state.images}
               onImageClick={this.handleImageClick}
