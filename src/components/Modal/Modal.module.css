@@ -12,6 +12,9 @@
 }
 
 .modal {
-  max-width: calc(100vw - 55px);
-  max-height: calc(100vh - 35px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: fit-content;
 }

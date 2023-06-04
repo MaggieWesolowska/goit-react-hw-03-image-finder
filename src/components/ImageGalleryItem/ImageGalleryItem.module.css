@@ -11,4 +11,10 @@
   background-color: #fff;
   width: 100%;
   text-decoration: none;
+  transition: transform 250ms ease-in-out;
+}
+
+.imageItem:hover {
+  transform: scale(1.03);
+  cursor: zoom-in;
 }
