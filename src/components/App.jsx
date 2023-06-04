@@ -25,7 +25,7 @@ export class App extends Component {
     if (searchInput.value.trim() === '') {
       return;
     }
-    const response = await fetchImages(searchInput.value, 1);
+    const response = await fetchImages(searchInput.value);
     this.setState({
       images: response,
       isLoading: false,
