@@ -92,7 +92,7 @@ export class App extends Component {
               images={images}
               onImageClick={this.handleImageClick}
             />
-            {images.length > 12 ? (
+            {images.length >= 12 ? (
               <Button onClick={this.handleMoreButton} />
             ) : null}
           </div>
