@@ -16,6 +16,7 @@ export class App extends Component {
     isModalOpen: false,
     modalImg: '',
     modalAlt: '',
+    error: null,
   };
 
   handleSubmit = async e => {
@@ -25,13 +26,18 @@ export class App extends Component {
     if (searchInput.value.trim() === '') {
       return;
     }
-    const response = await fetchImages(searchInput.value);
-    this.setState({
-      images: response,
-      isLoading: false,
-      searchQuery: searchInput.value,
-      pageNr: 1,
-    });
+    try {
+      const response = await fetchImages(searchInput.value);
+      this.setState({
+        images: response,
+        searchQuery: searchInput.value,
+        pageNr: 1,
+      });
+    } catch (error) {
+      this.setState({ error });
+    } finally {
+      this.setState({ isLoading: false });
+    }
   };
 
   handleMoreButton = async () => {
@@ -72,7 +78,8 @@ export class App extends Component {
   }
 
   render() {
-    const { isLoading, images, isModalOpen, modalImg, modalAlt } = this.state;
+    const { isLoading, images, isModalOpen, modalImg, modalAlt, error } =
+      this.state;
 
     return (
       <div
@@ -95,6 +102,19 @@ export class App extends Component {
             {images.length >= 12 ? (
               <Button onClick={this.handleMoreButton} />
             ) : null}
+            {error && (
+              <p
+                style={{
+                  marginLeft: 30,
+                  fontWeight: 'bold',
+                  color: '#00415a',
+                  textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)',
+                }}
+              >
+                {' '}
+                ...Whoops, something went wrong, try again
+              </p>
+            )}
           </div>
         )}
         {isModalOpen ? (
