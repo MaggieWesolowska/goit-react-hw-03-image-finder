@@ -11,10 +11,7 @@
   z-index: 10;
 }
 
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-  height: fit-content;
+.modal .modalImg {
+  max-width: calc(100vw - 50px);
+  max-height: calc(100vh - 25px);
 }

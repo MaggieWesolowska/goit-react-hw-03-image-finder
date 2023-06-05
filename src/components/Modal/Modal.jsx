@@ -5,7 +5,7 @@ export const Modal = ({ src, alt, handleClose }) => {
   return (
     <div className={css.overlay} onClick={handleClose}>
       <div className={css.modal}>
-        <img src={src} alt={alt} />
+        <img className={css.modalImg} src={src} alt={alt} />
       </div>
     </div>
   );
