@@ -77,6 +77,10 @@ export class App extends Component {
     window.addEventListener('keydown', this.handleEscapeKey);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleEscapeKey);
+  }
+
   render() {
     const { isLoading, images, isModalOpen, modalImg, modalAlt, error } =
       this.state;
